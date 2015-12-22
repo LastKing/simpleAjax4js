@@ -22,22 +22,22 @@ class Container extends EventEmitter {
 
   /**
    * 加载指定路径下的所有ajax模块到缓存
-   * @param modulePath    模块路径
-   * @returns {*}         null
+   * @param modulePath    模块路径 （就是ajax对应文件 对应位置）module，就是js文件名
    */
   async load(modulePath) {
-    //读取文件信息
+    //1. 读取文件路径
     var stats = await fs.statAsync(modulePath);
 
-    //判断文件的类型
+    //2. 判断文件的类型     （查找目下的所有文件，文件夹继续 递归 向下找）
     if (stats.isDirectory()) {
-      //获取到目录下所有的文件
+      //3. 获取到目录下所有的文件
       var files = await fs.readdirAsync(modulePath);
       console.log(`目录 ${modulePath} 下找到 ${files.length} 个文件`);
-      //形成承诺数组
+      //4. 形成承诺数组   ( 拼写文件路径，并再次回调进行load操作，载入js模块）-->如果不是文件夹，转入else 运行返回
       var promises = files.map(filename => this.load(path.join(modulePath, filename)));
       await Promise.all(promises);
     } else {
+      // 对ajax 对应的js文件进行处理
       if (modulePath.endsWith('.js')) {
         //获取模块名
         var moduleName = path.basename(modulePath).replace('.js', '');
