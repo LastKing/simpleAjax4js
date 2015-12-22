@@ -20,5 +20,8 @@ test/lib/*.js.map
 test/server/*.js
 test/server/*.js.map
 
+test/ajax/*.js
+test/ajax/*.js.map
+
 src/*.js
 src/*.js.map
