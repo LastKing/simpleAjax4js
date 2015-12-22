@@ -3,6 +3,7 @@
  */
 
 import request from 'supertest';
+import should  from 'should';
 
 import serverInit from '../lib/server-init';
 
@@ -21,7 +22,7 @@ before(async(done)=> {
 describe('基准测试', ()=> {
   it('没有返回值', (done)=> {
     request(app)
-        .get('/eazyajax/basic/getNull.ac')
+        .get('/simpleajax/basic/getNull.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -32,8 +33,6 @@ describe('基准测试', ()=> {
           result.should.not.property('returnValue');
           done();
         });
-
-    done();
   });
 });
 

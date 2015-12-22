@@ -11,17 +11,17 @@ import contextInit from './server/contextInit';
 var router = express.Router();
 
 /**
- * 根据路径和配置,初始化eazyajax环境
+ * 根据路径和配置,初始化simpleajax环境
  * 并返回express的中间件
  *
  * export default 默认值函数，后面的值空缺，马上赋值为默认值
  */
-export default async function (ajaxModuleRoot = path.join(process.cwd(), 'ajax'), {root}= {root: 'eazyajax'}) {
+export default async function (ajaxModuleRoot = path.join(process.cwd(), 'ajax'), {root}= {root: 'simpleajax'}) {
   //加载和扫描模块
   await container.load(ajaxModuleRoot);
   console.log('模块加载完毕');
 
-  //注册ajax调用处理器
+  //注册ajax调用处理器    截获  /xxxx/xxx/xxx.ac 的请求
   router.use(
       `/${root}/:moduleName/:methodName.ac`,
       contextInit
