@@ -25,3 +25,6 @@ test/ajax/*.js.map
 
 src/*.js
 src/*.js.map
+
+src/server/*.js
+src/server/*.js.map

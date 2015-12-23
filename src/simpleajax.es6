@@ -1,4 +1,5 @@
 /**
+ * http context增强处理器
  * Created by Rain on 2015/12/22.
  */
 import express from 'express';
@@ -7,6 +8,7 @@ import path from 'path';
 import container from './container';
 
 import contextInit from './server/contextInit';
+import invoke    from './server/invoke'
 
 var router = express.Router();
 
@@ -24,7 +26,8 @@ export default async function (ajaxModuleRoot = path.join(process.cwd(), 'ajax')
   //注册ajax调用处理器    截获  /xxxx/xxx/xxx.ac 的请求
   router.use(
       `/${root}/:moduleName/:methodName.ac`,
-      contextInit
+      contextInit,
+      invoke
   );
 
   //返回一个express中间件
