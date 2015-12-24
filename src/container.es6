@@ -14,6 +14,9 @@ var moduleCache = new Map();
 
 /**
  * 容器类
+ *
+ * 此类缓存所有ajax 模块 和 方法对应变量
+ *
  */
 class Container extends EventEmitter {
   constructor() {

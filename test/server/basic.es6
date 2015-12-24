@@ -22,7 +22,7 @@ before(async(done)=> {
 describe('基准测试', ()=> {
   it('没有返回值', (done)=> {
     request(app)
-        .get('/simpleajax/basic/getNull.ac')
+        .get('/simpleajax/basic/getNone.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -34,6 +34,23 @@ describe('基准测试', ()=> {
           done();
         });
   });
+
+  it("返回空值", (done)=> {
+    request(app)
+        .get('/simpleajax/basic/getNull.ac')
+        .expect(200)
+        .expect('Content-Type', 'application/json; charset=utf-8')
+        .end((err, res)=> {
+          if (err)done(err);
+
+          var result = JSON.parse(res.text);
+          result.should.not.property('error');
+          result.should.property('returnValue', null);
+          done();
+        })
+  })
+
+
 });
 
 

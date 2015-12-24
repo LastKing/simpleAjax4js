@@ -1,16 +1,29 @@
 /**
- * Created by Rain on 2015/12/22.
- */
-/**
  * Ajax基础模块
- * Created by demon on 15-12-21.
+ * Created by Rain on 2015/12/22.
  */
 
 /**
  * 没有返回值
  */
-export function getNull() {
+export function getNone() {
 
+}
+
+/**
+ * 返回一个空
+ * @returns {null}      空值
+ */
+export function getNull() {
+  return null;
+}
+
+/**
+ * 返回一个布尔值
+ * @returns {boolean}
+ */
+export function getBoolean() {
+  return false;
 }
 
 /**
