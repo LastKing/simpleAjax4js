@@ -28,3 +28,9 @@ src/*.js.map
 
 src/server/*.js
 src/server/*.js.map
+
+#coverage reporter
+coverage
+
+#gulp dist
+dist
