@@ -17,6 +17,12 @@ export default function (req, res, next) {
       res.sendReturnValue(undefined);
     } else if (returnValue === null) {
       res.sendReturnValue(null);
+    }else {
+      if(returnValue.then){
+
+      }else{
+        res.sendReturnValue(returnValue);
+      }
     }
 
   } catch (error) {
