@@ -9,18 +9,30 @@ export default function (req, res, next) {
     var context = req.simpleajax;
     var args = context.args;
 
-    //调用 上下文中的方法
+    //调用 请求对应的方法
     let returnValue = context.method.apply(context, args);
 
-    //判断调用值
+    /**
+     * 根据 返回值
+     * 返回不同的参数
+     */
     if (returnValue === undefined) {
       res.sendReturnValue(undefined);
     } else if (returnValue === null) {
       res.sendReturnValue(null);
-    }else {
-      if(returnValue.then){
-
-      }else{
+    } else {
+      //判断是否为Promise，是则异步 等待结果完成再输出
+      if (returnValue.then) {
+        returnValue.then((value)=> {
+          res.sendReturnValue(value);
+        }).catch((error)=> {
+          if (error.code == null)
+            error.code = -5;
+          if (error.message == null || error.message == '')
+            error.message = '未知错误';
+          res.sendError(error.code, error.message);
+        });
+      } else {
         res.sendReturnValue(returnValue);
       }
     }

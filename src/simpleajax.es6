@@ -9,7 +9,7 @@ import container from './container';
 
 import contextInit from './server/contextInit';
 import invoke    from './server/invoke'
-import invoke_check from './server/invoke_check';
+import invokecheck from './server/invoke_check';
 
 var router = express.Router();
 
@@ -28,7 +28,7 @@ export default async function (ajaxModuleRoot = path.join(process.cwd(), 'ajax')
   router.use(
       `/${root}/:moduleName/:methodName.ac`,
       contextInit,
-      invoke_check,
+      invokecheck,
       invoke
   );
 
