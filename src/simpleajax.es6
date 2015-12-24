@@ -10,6 +10,7 @@ import container from './container';
 import contextInit from './server/contextInit';
 import invoke    from './server/invoke'
 import invokecheck from './server/invoke_check';
+import permissioncheck from './server/permission_check';
 
 var router = express.Router();
 
@@ -29,6 +30,7 @@ export default async function (ajaxModuleRoot = path.join(process.cwd(), 'ajax')
       `/${root}/:moduleName/:methodName.ac`,
       contextInit,
       invokecheck,
+      permissioncheck,
       invoke
   );
 

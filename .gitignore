@@ -14,20 +14,15 @@ node_modules
 index.js
 index.js.map
 
-test/lib/*.js
-test/lib/*.js.map
+test/**/*.js
+test/**/*.js.map
 
-test/server/*.js
-test/server/*.js.map
-
-test/ajax/*.js
-test/ajax/*.js.map
 
 src/*.js
 src/*.js.map
 
-src/server/*.js
-src/server/*.js.map
+src/**/*.js
+src/**/*.js.map
 
 #coverage reporter
 coverage
