@@ -22,7 +22,7 @@ before(async(done)=> {
 describe('承诺测试', () => {
   it('没有返回值', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getNone.ac')
+        .get('/simpleajax/promise/getNone.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -37,7 +37,7 @@ describe('承诺测试', () => {
 
   it('返回空值', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getNull.ac')
+        .get('/simpleajax/promise/getNull.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -52,7 +52,7 @@ describe('承诺测试', () => {
 
   it('返回值为布尔', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getBoolean.ac')
+        .get('/simpleajax/promise/getBoolean.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -67,7 +67,7 @@ describe('承诺测试', () => {
 
   it('返回值为数字', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getNumber.ac')
+        .get('/simpleajax/promise/getNumber.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -82,7 +82,7 @@ describe('承诺测试', () => {
 
   it('返回值为字符串', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getString.ac')
+        .get('/simpleajax/promise/getString.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -97,7 +97,7 @@ describe('承诺测试', () => {
 
   it('返回值为数组', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getArray.ac')
+        .get('/simpleajax/promise/getArray.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {
@@ -116,7 +116,7 @@ describe('承诺测试', () => {
 
   it('返回值为对象', (done)=> {
     request(app)
-        .get('/simpleAjax/promise/getObject.ac')
+        .get('/simpleajax/promise/getObject.ac')
         .expect(200)
         .expect('Content-Type', 'application/json; charset=utf-8')
         .end((err, res)=> {

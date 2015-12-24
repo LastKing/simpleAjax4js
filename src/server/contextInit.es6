@@ -33,10 +33,26 @@ export default  function (req, res, next) {
 
     var args = null;
 
-    //if(httpParams==)
-    //args = JSON.parse(httpParams.args);
+    if (httpParams.args) {
+      //如果有参数
+      //时间解析器
+      var dateParse = function (key, value) {
+        if (typeof value === 'string') {
+          var segments = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d*)Z$/.exec(value);
+          if (segments) {
+            return new Date(Date.UTC(+segments[1], +segments[2] - 1, +segments[3], +segments[4],
+                +segments[5], +segments[6], +segments[7]));
+          }
+        }
+        return value;
+      };
+
+      args = JSON.parse(httpParams.args, dateParse);
+    }
+
 
     //初始化simpleajax调用的context到req对象上
+
     req.simpleajax = {req, res, session: req.session, moduleName, methodName, args};
 
   } catch (error) {
