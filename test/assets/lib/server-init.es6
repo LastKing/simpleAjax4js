@@ -5,7 +5,7 @@ import express from 'express';
 import session from 'express-session';
 import path from 'path';
 
-import simpleajax from '../../index';
+import simpleajax from '../../../index';
 
 var app;
 

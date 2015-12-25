@@ -6,7 +6,7 @@
 import request from 'supertest';
 import should  from 'should';
 
-import serverInit from '../lib/server-init';
+import serverInit from '../assets/lib/server-init';
 
 var app;
 //先启动服务器
