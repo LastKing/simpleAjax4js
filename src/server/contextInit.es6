@@ -5,6 +5,7 @@
  *
  * Created by Rain on 2015/12/22.
  */
+import util from 'util';
 
 export default  function (req, res, next) {
 
@@ -52,7 +53,6 @@ export default  function (req, res, next) {
 
 
     //初始化simpleajax调用的context到req对象上
-
     req.simpleajax = {req, res, session: req.session, moduleName, methodName, args};
 
   } catch (error) {
