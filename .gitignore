@@ -20,6 +20,9 @@ test/**/*.js.map
 src/**/*.js
 src/**/*.js.map
 
+example/**/**.js
+example/**/**.js.map
+
 #coverage reporter
 coverage
 
